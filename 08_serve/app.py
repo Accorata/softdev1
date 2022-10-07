@@ -2,9 +2,11 @@
 # Shy : Sasha S, Henry B, Yuki F
 # SoftDev
 # Oct 2022
+# DISCO:
+# The return type must be a string, dict, list, tuple with headers or status, Response instance, or WSGI callable, but it was a JpegImageFile
 # '''
 
-from flask import Flask
+from flask import Flask, url_for, request
 import random as rng
 
 app = Flask(__name__)
@@ -30,13 +32,14 @@ def randOccupation() :
         for i in range((int)(percentage*10)):
             occupations.append(occupation) #adds occupation based on Percentage
     job = rng.choice(occupations) #random job
-    return job + ": " + (str)(job_dict[job]) #returns said job and corresponding percentage
+    return job #returns said job
 
 data = readFile()
 
+
 @app.route("/")
 def print_to_screen():
-    return str(data) + randOccupation()
+    return ("<center><h1>Shy : Sasha, Henry, Yuki </h1> <br><br> <img src='{url_for('static', filename = 'OIP.jpeg')}'></center><br><br>" + str(data) + "<br><br>" + "<b><center> Random Job: " + randOccupation() + "</center></b>")
 
 if __name__ == "__main__": 
     app.debug = True
