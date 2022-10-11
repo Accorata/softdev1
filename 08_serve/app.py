@@ -1,13 +1,23 @@
-# '''
-# Shy : Sasha S, Henry B, Yuki F
-# SoftDev
-# Oct 2022
-# DISCO:
-# The return type must be a string, dict, list, tuple with headers or status, Response instance, or WSGI callable, but it was a JpegImageFile
-# '''
+'''
+Shy : Sasha S, Henry B, Yuki F
+SoftDev
+Oct 2022
+Time spent: 1.0 hr
 
-from flask import Flask, url_for, request
+DISCO:
+    - The return type must be a string, dict, list, tuple with headers or status,
+    Response instance, or WSGI callable, but it was a JpegImageFile
+    - you can display an image like you would in html! do so by setting the img src
+    like so:
+        <img src = '/static/[filename]'>
+QCC:
+    - our error in trying to import the image in class was an extra ' disrupting
+    the code
+'''
+
+from flask import Flask
 import random as rng
+from PIL import Image
 
 app = Flask(__name__)
 
@@ -36,11 +46,16 @@ def randOccupation() :
 
 data = readFile()
 
-
 @app.route("/")
 def print_to_screen():
-    return ("<center><h1>Shy : Sasha, Henry, Yuki </h1> <br><br> <img src='{url_for('static', filename = 'OIP.jpeg')}'></center><br><br>" + str(data) + "<br><br>" + "<b><center> Random Job: " + randOccupation() + "</center></b>")
+    rand_job = (str)(randOccupation())
+    job_for_link = rand_job.replace(" ", "-").replace(",", "")
+    link = "<a href = https://www.wikipedia.org/w/index.php?search=" + job_for_link + ">" + rand_job + "</a>"
+    return (
+    "<center><h1>Shy: Sasha, Henry, Yuki</h1>" +
+    "<img src='/static/OIP.jpeg'> <h2> List of Occupations: </h2> </center>"
+    + str(data) + "<br><br> <b><center> Random Job: " + link + "</center></b>")
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     app.debug = True
     app.run()
