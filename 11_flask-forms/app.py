@@ -18,7 +18,7 @@ app = Flask(__name__)    #create Flask object
 trioTASK:
 ~~~~~~~~~~~ BEFORE RUNNING THIS, ~~~~~~~~~~~~~~~~~~
 ...read for understanding all of the code below.
-Some will work as written; other sections will not. 
+Some will work as written; other sections will not.
 TASK: Predict which...
 Devise some simple tests you can run to "take apart this engine," as it were.
 Execute your tests.
@@ -30,7 +30,7 @@ PROTIP: Insert your own in-line comments
    understand what is going on.
 '''
 
-@app.route("/", methods=['GET'])
+@app.route("/")#, methods=['POST'])
 def disp_loginpage():
     print("\n\n\n")
     print("***DIAG: this Flask obj ***")
@@ -62,8 +62,8 @@ def authenticate():
     return "Waaaa hooo HAAAH"  #response to a form submission
 
 
-    
+
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified
-    app.debug = True 
+    app.debug = True
     app.run()

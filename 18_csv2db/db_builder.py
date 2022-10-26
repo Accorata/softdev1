@@ -3,7 +3,7 @@ Henali: Henry (e), Erica (hugo), Aahan (spikes)
 SoftDev Pd 8
 18: (Python+Sqlite)3: A Mare Widge Made in Hebben
 Oct 25, 2022
-Estimated Time: 
+Estimated Time:
 '''
 
 import sqlite3   #enable control of an sqlite database
@@ -18,13 +18,18 @@ c = db.cursor()               #facilitate db ops -- you will use cursor to trigg
 students = open('students.csv')
 dictionary = csv.DictReader(students)
 
-c.execute(CREATE TAble....)
-command = ""          # test SQL stmt in sqlite3 shell, save as string
-c.execute(command)    # run SQL statement
+# c.execute("CREATE TABLE test (name TEXT);")
+# c.execute('INSERT INTO test ("testname");')
+c.execute("CREATE TABLE students (name TEXT, age INTEGER, id INTEGER);")
+for row in dictionary :
+    print(row)
+    command = "INSERT INTO students VALUES ('"+row['name']+"', "+row['age']+", "+row['id']+");"
+    print(command)
+    c.execute(command)
+# command = ""          # test SQL stmt in sqlite3 shell, save as string
+# c.execute(command)    # run SQL statement
 
 #==========================================================
 
 db.commit() #save changes
 db.close()  #close database
-
-
