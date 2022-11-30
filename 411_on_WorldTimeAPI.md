@@ -17,7 +17,7 @@ This API allows you to retrieve the current time for many locations on Earth wit
 - Easy to use
 - No need for a personal key
 - Completely free (for non-commercial purposes)
-- Format is simple: https://worldtimeapi.org/api/timezone/<Area>/<Location>/<Optional Specific Area>.json
+- Format is simple: worldtimeapi.org/api/timezone/\<Area>/\<Location>/\<Optional Specific Area>.json
 - Testing Example: https://worldtimeapi.org/api/timezone/America/New_York.json
 
 ## The Bad:
