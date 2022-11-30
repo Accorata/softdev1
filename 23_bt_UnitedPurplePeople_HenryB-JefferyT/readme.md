@@ -1,9 +1,9 @@
-United Purple People
-Henry (e), Jeffrey (Mathias)
-23_bt - Exploring bootstrap
-SoftDev
-2022-11-29
-time spent: 1.25 hr
+United Purple People  
+Henry (e), Jeffrey (Mathias)  
+23_bt - Exploring bootstrap  
+SoftDev  
+2022-11-29  
+time spent: 1.25 hr  
 
 ## Notes
 - Well, I feel like we're going to forget all the names for these classes and options, but at least we can copy them from here
